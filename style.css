@@ -1,0 +1,303 @@
+/* Apply a clean gradient background */
+body {
+  margin: 0;
+  padding-bottom: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c3eaff, #e0c9e7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.logo-container {
+  position: fixed;
+  bottom: 30px; /* Change to `top: 30px;` if you want it on top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.animated-logo {
+  width: 100px;
+  height: auto;
+  opacity: 0;
+  animation: floatInGlow 2.5s ease-out forwards;
+}
+
+/* 🔥 Keyframes for popping in + glow */
+@keyframes floatInGlow {
+  0% {
+    transform: translate(-50%, 100px) scale(0.8);
+    opacity: 0;
+    filter: blur(4px) brightness(1.3);
+  }
+  60% {
+    transform: translate(-50%, -10px) scale(1.05);
+    opacity: 1;
+    filter: blur(0px) brightness(1.1);
+  }
+  80% {
+    transform: translate(-50%, 5px) scale(1);
+  }
+  100% {
+    transform: translate(-50%, 0px);
+    filter: brightness(1);
+  }
+}
+.animated-logo:hover {
+  animation: pulseLogo 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulseLogo {
+  0% {
+    transform: translate(-50%, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-50%, 0px) scale(1.1);
+    filter: drop-shadow(0 0 10px #fff);
+  }
+  100% {
+    transform: translate(-50%, 0px) scale(1);
+  }
+}
+
+/* Centered task container card */
+.container {
+  background: rgba(240, 240, 255, 0);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(150, 150, 255, 0.573);
+  max-width: 480px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInUp 0.6s ease;
+  .container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+}
+.filter-btn:hover {
+  background: linear-gradient(90deg, #00c9ff, #92fe9d);
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Input field styling */
+input[type="text"] {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 0px solid #ddd;
+  font-size: 16px;
+   outline: none;
+  border: 2px solid #00f7ff00;
+  box-shadow: 0 12px 24px rgba(150, 150, 255, 0.573);
+}
+
+/* Add button */
+#add-btn {
+ display:block;
+  width: 50%;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(98, 0, 234, 0.8), rgba(236, 64, 122, 0.8));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px auto; 
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+#add-btn:hover {
+  background: linear-gradient(135deg, rgba(236, 64, 122, 0.9), rgba(98, 0, 234, 0.9));
+  transform: scale(1.02);
+}
+
+
+/* Filter buttons */
+.filter-btn {
+  margin: 5px 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filter-btn.active {
+  background-color: #28a745;
+  color: white;
+}
+
+ul#task-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Task item card */
+li {
+  background-color: white;
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  animation: taskDrop 0.4s ease;
+}
+@keyframes taskDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+li:hover {
+  transform: translateY(-2px);
+}
+
+/* Task text */
+li span {
+  flex-grow: 1;
+  font-size: 16px;
+  word-break: break-word;
+}
+
+/* Buttons inside task */
+li button {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Status specific styles */
+.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Optional: Emoji-specific buttons */
+button[title="Delete"] {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+button[title="Edit"] {
+  background-color: #17a2b8;
+  color: white;
+}
+
+button[title="Mark Complete"], 
+button[title="Undo"] {
+  background-color: #ffc107;
+  color: black;
+}
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(16, 15, 15);
+  background: linear-gradient(90deg, #00f7ff, #ff00c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: zoomRise 2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes zoomRise {
+  0% {
+    transform: scale(0.7) translateY(50px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #00f7ffec, #e9adfb);
+  border-radius: 999px;
+  animation: underlineGrow 2s ease-out 1s forwards;
+}
+
+@keyframes underlineGrow {
+  to {
+    width: 80%;
+    opacity: 1;
+  }
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #00e0ff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+  footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #22222200;
+  color: #000000;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 14px;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow:0 12px 24px rgb(150, 150, 255);;
+  z-index: 100;
+  
+}
+

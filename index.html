@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="script" href="script.js">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+  <div class="container">
+    <h1 class="fancy-heading">Taskology</h1>
+    <input type="text" id="task-input" placeholder="Enter a task..." />
+    <button id="add-btn">Add</button>
+
+    <div>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <ul id="task-list"></ul>
+  </div>
+<!-- Spinner HTML -->
+<div class="spinner" id="spinner" style="display:none;"></div>
+
+  <script src="script.js"></script>
+  <footer>
+  <p>&copy; Made with ❤️ by Tripadh © 2025.</p>
+</body>
+
+</html>
